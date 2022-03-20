@@ -23,7 +23,7 @@ async function pegaArquivo(caminhoDoArquivo) {
     console.log(chalk.blue(texto))
     console.log(extraiLinks(texto))
   } catch (error) {
-    trataErro(erro);    
+    trataErro(error);    
   }
   
   // fs.readFile(caminhoDoArquivo, enconding, (erro, texto) => {
@@ -35,4 +35,6 @@ async function pegaArquivo(caminhoDoArquivo) {
   // })
 
 }
-pegaArquivo('./arquivos/texto1.md');
+// pegaArquivo('./arquivos/texto1.md');
+
+module.exports =  pegaArquivo;
