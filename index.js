@@ -9,7 +9,7 @@ function extraiLinks(texto) {
   while ((temp = regex.exec(texto)) !== null) {
     arrayResultados.push({ [temp[1]]: temp[2] });
   }
-  return arrayResultados;
+  return arrayResultados.length === 0 ? 'não há links' : arrayResultados ;
 }
  
 function trataErro(erro) {
@@ -20,8 +20,9 @@ async function pegaArquivo(caminhoDoArquivo) {
   const enconding = 'utf-8';
   try {
     const texto = await fs.promises.readFile(caminhoDoArquivo,enconding)
-    console.log(chalk.blue(texto))
-    console.log(extraiLinks(texto))
+    // console.log(chalk.blue(texto))
+    // console.log(extraiLinks(texto))
+    return extraiLinks(texto)
   } catch (error) {
     trataErro(error);    
   }
